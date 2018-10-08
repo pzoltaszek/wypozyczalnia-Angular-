@@ -1,0 +1,69 @@
+<h2>Choose car to edit</h2>
+
+<table class="table table-hover">
+  <tr><th>Id</th><th>Mark</th><th>Model</th></tr>
+<tr *ngFor="let car of cars">
+  <td>{{car.id}}</td>
+  <td>{{car.mark}}</td>
+  <td>{{car.model}}</td>
+
+  <td>
+  <button class="btn btn-danger" title="delete car"
+          (click)="delete(car)">Delete</button>
+
+  <button class="btn btn-primary" routerLink="/detail/{{car.id}}">Edit</button>
+  </td>
+</tr>
+</table>
+
+  <br>
+  <div>
+    <label>Add new car <div id="fulfillMessage">{{message()}}</div></label>
+    <table class="table table-hover">
+      <tr>
+      <td>mark:</td><td><input #carMark placeholder="mark"/></td>
+    </tr>
+      <tr>
+        <td>model:</td><td><input #carModel placeholder="model"/></td>
+      </tr>
+      <tr>
+        <td>description:</td><td><input #carDescription placeholder="short description"/></td>
+      </tr>
+      <tr>
+        <td>colour:</td><td><input #carColour placeholder="colour"/></td>
+      </tr>
+      <tr>
+        <td>production year:</td><td><input #carproductionYear placeholder="year: yyyy"/></td>
+      </tr>
+      <tr>
+        <td>retirement year:</td><td><input #carretirementYear placeholder="year: yyyy"/></td>
+      </tr>
+      <tr>
+      <td>mileage:</td><td><input #carMileage placeholder="mileage (km)"/></td>
+      </tr>
+      <tr>
+      <td>service period From:</td>
+        <td>
+          <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"></ngb-datepicker>
+
+        <ng-template #t let-date="date" let-focused="focused">
+          <span class="custom-day"
+          [class.focused]="focused"
+          [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+          [class.faded]="isHovered(date) || isInside(date)"
+          (mouseenter)="hoveredDate = date"
+          (mouseleave)="hoveredDate = null">
+           {{ date.day }}
+           </span>
+        </ng-template>
+        </td>
+      </tr>
+    </table>
+    <br>
+
+    <button class="btn btn-success" (click)="add(carMark.value, carModel.value, carDescription.value, carColour.value, carproductionYear.value, carretirementYear.value,
+     carMileage.value);
+    carMark.value=''; carModel.value=''; carDescription.value=''; carColour.value=''; carproductionYear.value=''; carretirementYear.value='';
+carMileage.value=''">Add Car</button>
+  </div>
+

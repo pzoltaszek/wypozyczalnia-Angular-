@@ -1,0 +1,11 @@
+<div id="search-component">
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Search by mark..."/>
+
+  <ul class="search-result">
+    <li *ngFor="let car of cars$ | async" >
+      <a routerLink="/carReservation-detail/{{car.id}}">
+        {{car.mark}}
+      </a>
+    </li>
+  </ul>
+</div>

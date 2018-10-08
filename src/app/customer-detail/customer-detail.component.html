@@ -1,0 +1,23 @@
+<div *ngIf="customer">
+  <h2>You are editing {{customer.name | uppercase }} {{customer.surname | uppercase }}</h2>
+  <div><span>id: </span>{{customer.id}}</div>
+  <div id="fulfillMessage">{{message()}}</div>
+  <table class="table table-hover">
+    <tr>
+      <td>name:</td> <td><input [(ngModel)] = "customer.name" placeholder="name"></td>
+    </tr>
+    <tr>
+      <td>surname:</td> <td><input [(ngModel)] = "customer.surname" placeholder="surname"></td>
+    </tr>
+    <tr>
+      <td>email:</td> <td><input [(ngModel)] = "customer.email" placeholder="email"></td>
+    </tr>
+    <tr>
+      <td>birth date</td> <td>{{customer.birthdayDate | date:'yyyy-MM-dd'}}</td>
+      <td>New birth Date:</td><td><ngb-datepicker #dp [(ngModel)]="model"></ngb-datepicker> </td>
+    </tr>
+  </table>
+</div>
+<br>
+<button class="btn btn-dark" (click)="goBack()">Back to List</button>
+<button class="btn btn-success" (click)="save()">Save</button>

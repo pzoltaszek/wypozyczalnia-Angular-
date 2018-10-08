@@ -1,0 +1,23 @@
+<h3 align="center">Our Top Cars</h3>
+<h5 align="center">Click on the picture to see details</h5>
+<br>
+<div id="carouselExampleControls" align="center">
+
+  <table class="carouselTable" role="listbox">
+    <tr><td id="prevB" align="right"><button (click)="getPrev()">Prev</button></td>
+      <td id="imageTd">
+    <img align="center" src="{{getSlide()}}" alt="slide"
+         routerLink="/carReservation-detail/{{carId}}">
+      </td>
+      <td id="nextB" align="left"><button (click)="getNext()">Next</button></td>
+    </tr>
+    <tr><td id="emptyB"></td><td id="carName" align="center">{{carName}}</td><td id="emptyN"></td></tr>
+  </table>
+</div>
+<br>
+<div id="placeHolder"></div>
+
+<h2 align="center" id="promotionAnimation">Summer promotion is coming! Check it in:</h2>
+
+<div id="counter" align="center"><h2>{{counter()}}</h2></div>
+

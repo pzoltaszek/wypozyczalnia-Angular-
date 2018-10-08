@@ -1,0 +1,33 @@
+/* CustomersComponent's private CSS styles */
+
+button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button.delete {
+  position: relative;
+  left: 21em;
+  top: -32px;
+  background-color: gray !important;
+  color: white;
+}
+table td {
+  width: 300px;
+}
+#fulfillMessage {
+  color: red;
+  font-weight: bold;
+}
+
+table {
+  width: 80%;
+}

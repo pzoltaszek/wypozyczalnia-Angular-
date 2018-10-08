@@ -1,0 +1,24 @@
+<br>
+<h2>Looking for your favourite car</h2>
+<app-car-search></app-car-search>
+
+<br>
+<h2>Nothing found? Pick up one from the list</h2>
+<input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search by model..">
+<table class="table table-hover" id="carsTable">
+  <tr>
+    <th (click)="sort('mark')" >Mark <img src="assets/arrows.png"></th>
+    <th (click)="sort('model')">Model <img src="assets/arrows.png"></th>
+  </tr>
+  <tr *ngFor="let car of cars | orderBy: key : reverse;">
+    <td>{{car.mark}}</td>
+    <td>{{car.model}}</td>
+
+    <td>
+      <button class="btn btn-info" routerLink="/carReservation-detail/{{car.id}}">Details</button>
+    </td>
+  </tr>
+</table>
+
+
+

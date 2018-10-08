@@ -1,0 +1,80 @@
+
+<div style="text-align:center">
+  <h1 id="fantazja">
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<form id="loginFormHidding" style="visibility: visible">
+    <table id="loginTable">
+      <tr>
+        <td>login:</td><td><input id="inputLogin" #customerLogin placeholder="login"/></td>
+        <td>password:</td><td><input id="inputPassword" #customerPassword placeholder="password"/></td>
+        <td><button class="btn btn-success" (click)="validate(customerLogin.value, customerPassword.value);
+     customerLogin.value=''; customerPassword.value=''">Submit</button></td>
+        <td></td>
+      </tr>
+      <tr><td><div id="fulfillMessage">{{message()}}</div></td></tr>
+    </table>
+  </form>
+<table id="greetingTable" align="right" ><tr><td>{{actualLogin()}}</td><td>
+  <button  id="logoutButtonHidding" class="btn btn-danger" style="visibility: hidden"
+           routerLink="/dashboard" (click)=logout()>Logout</button>
+</td></tr></table>
+
+<!--MODAL REGISTRATION WINDOW:-->
+<ng-template #content let-c="close">
+  <div class="modal-header">
+    <h3 class="modal-title">Register new user</h3>
+    <button type="button" class="close" aria-label="Close" (click)="c('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      <label>Add new customer <div id="fulfillForm"> {{registerMessage()}}</div><div id="success">{{succesRegisterMessage()}}</div><div id="validationMsg">{{validationMessage()}}</div></label>
+      <table class="table table-hover">
+        <tr>
+          <td>login:</td><td><input #customerLogin placeholder="name"/></td>
+        </tr>
+        <tr>
+          <td>password:</td><td><input #customerPassword placeholder="surname"/></td>
+        </tr>
+        <tr>
+          <td>email:</td><td><input #customerEmail placeholder="email@email.com"/></td>
+        </tr>
+      </table>
+      <button class="btn btn-success" (click)="registration(customerLogin.value, customerPassword.value, customerEmail.value );
+     customerLogin.value=''; customerPassword.value=''; customerEmail.value='';">Add New Customer</button>
+    </div>
+  </div>
+</ng-template>
+<a  id="registrationButton" class="badge badge-secondary" style="visibility: visible" (click)="open(content)">Registration</a>
+
+<!--END OF MODAL-->
+
+<table id="animation"><tr>Only today, all prices -50%!!!</tr></table>
+<br>
+<br>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="dashboard">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/carReservation">Cars Reservation</a>
+  </li>
+  <div id="navigationHidding" class="nav nav-tabs" style="visibility: hidden">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/cars">Cars Administration</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/customers">Customers Management</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/reservations">Rental Administration</a>
+  </li>
+  </div>
+</ul>
+<br>
+
+<router-outlet></router-outlet>

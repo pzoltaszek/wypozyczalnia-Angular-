@@ -1,0 +1,48 @@
+#carouselExampleControls {
+  align-content: center;
+}
+#carouselTable {
+  width: 70%;
+}
+#prevB, #nextB {
+  width: 10%;
+}
+#imageTd {
+  width: 550px;
+}
+#placeHolder {
+  height: 100px;
+}
+#promotionDiv{
+  width: 80%;
+  background-color: gray;
+}
+#emptyB , emptyN {
+  width: 10%;
+}
+#carName {
+  width: 550px;
+}
+
+#promotionAnimation{
+  margin-left: auto;
+  margin-right: auto;
+  animation-name: promotionAnimation;
+  animation-duration:1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes promotionAnimation {
+  0% {color: black; font-weight: normal;}
+  50% {color: red; font-weight: bold;}
+  100% {color: black; font-weight: normal;}
+}
+
+#counter {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  background-color: gray;
+  font-size: 30px;
+}

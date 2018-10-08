@@ -1,0 +1,39 @@
+<div *ngIf="car">
+  <h2>You are editing {{car.mark | uppercase }}</h2>
+  <div><span>id: </span>{{car.id}}</div>
+  <br>
+  <table class="table table-hover">
+    <tr>
+      <td>mark:</td> <td><input [(ngModel)] = "car.mark" placeholder="mark"></td>
+    </tr>
+    <tr>
+      <td>model:</td> <td><input [(ngModel)] = "car.model" placeholder="model"></td>
+    </tr>
+    <tr>
+      <td>description:</td> <td><input [(ngModel)] = "car.description" placeholder="description"></td>
+    </tr>
+    <tr>
+      <td>colour:</td> <td> <input [(ngModel)] = "car.colour" placeholder="colour"></td>
+    </tr>
+    <tr>
+      <td>production year:</td> <td><input [(ngModel)] = "car.productionYear" placeholder="productionYear"></td>
+    </tr>
+    <tr>
+      <td>retirement year:</td> <td><input [(ngModel)] = "car.retirementYear" placeholder="retirementYear"></td>
+    </tr>
+    <tr>
+      <td>mileage:</td> <td><input [(ngModel)] = "car.mileage" placeholder="mileage"></td>
+    </tr>
+    <tr>
+      <td>Actual service period From:</td> <td>{{car.serviceFrom | date:'yyyy-MM-dd'}}</td>
+      <td>New service period From</td><td><input [(ngModel)] = car.serviceFrom placeholder="{{car.serviceFrom | date:'yyyy-MM-dd'}}"></td>
+    </tr>
+    <tr>
+      <td>Actual service period From:</td> <td>{{car.serviceTo | date:'yyyy-MM-dd'}}</td>
+      <td>New service period To:</td> <td><input [(ngModel)] = "car.serviceTo" placeholder="servicePeriod"></td>
+    </tr>
+  </table>
+</div>
+<br>
+<button class="btn btn-dark" (click)="goBack()">Back</button>
+<button class="btn btn-success" (click)="save()">Save</button>

@@ -1,0 +1,38 @@
+<h2>Choose customer to edit</h2>
+
+<table class="table table-hover">
+  <tr><th>Name</th><th>Surname</th><th>Birth Date</th></tr>
+  <tr *ngFor="let customer of customers">
+    <td>{{customer.name}}</td>
+    <td>{{customer.surname}}</td>
+    <td>{{customer.birthdayDate | date:'yyyy-MM-dd'}}</td>
+
+    <td>
+      <button class="btn btn-danger" title="delete customer"
+              (click)="delete(customer)">Delete</button>
+
+      <button class="btn btn-primary" routerLink="/customer-detail/{{customer.id}}">Edit</button>
+    </td>
+  </tr>
+</table>
+  <hr>
+  <div>
+    <label>Add new customer <div id="fulfillMessage"> {{message()}}</div></label>
+    <table class="table table-hover">
+      <tr>
+        <td>name:</td><td><input #customerName placeholder="name"/></td>
+      </tr>
+      <tr>
+        <td>surname:</td><td><input #customerSurname placeholder="surname"/></td>
+      </tr>
+      <tr>
+        <td>email:</td><td><input #customerEmail placeholder="email@email.com"/></td>
+      </tr>
+      <tr>
+        <td>birth Date:</td><td><ngb-datepicker #dp [(ngModel)]="model"></ngb-datepicker> </td>
+      </tr>
+    </table>
+    <button class="btn btn-success" (click)="add(customerName.value, customerSurname.value, customerEmail.value );
+     customerName.value=''; customerSurname.value=''; customerEmail.value='';">Add Customer</button>
+  </div>
+

@@ -1,0 +1,42 @@
+<div *ngIf="car">
+  <h2>{{car.mark | uppercase }} Details</h2>
+
+  <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t">
+  </ngb-datepicker>
+
+  <ng-template #t let-date="date" let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+  </ng-template>
+<br>
+
+  <table>
+   <tr> <th>Select rent date and reserve this car now! <button class="btn btn-success" (click)="reserve()">Click to reserve</button></th>
+    </tr>
+    <tr><div id="fulfillMessage">{{message()}}</div><div id="serviceMessage">{{serviceDateMessage()}}</div><div id="serviceMessage2">{{serviceDateMessage2()}}</div></tr>
+  </table>
+  <br>
+
+  <table class="table table-striped">
+    <tr><th>mark:</th><td>{{car.mark}}</td></tr>
+    <tr><th>model:</th><td>{{car.model}}</td></tr>
+    <tr><th>description:</th><td>{{car.description}}</td></tr>
+    <tr><th>colour:</th><td>{{car.colour}}</td></tr>
+    <tr><th>Production Year:</th><td>{{car.productionYear}}</td></tr>
+    <tr><th>mileage:</th><td>{{car.mileage}}</td></tr>
+  </table>
+
+  <figure class="figure">
+    <img src="assets\{{car.mark}}.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+    <figcaption class="figure-caption">Image serve as an example only.</figcaption>
+  </figure>
+
+</div>
+<br>
+<button class="btn btn-secondary" (click)="goBack()">Back to list</button>

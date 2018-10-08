@@ -1,0 +1,84 @@
+/* AppComponent's private CSS styles */
+
+h1 {
+  /*font-size: 1.2em;*/
+  color: black;
+  margin-bottom: 0;
+}
+
+#animation{
+  width: 95%;
+  font-weight: bold;
+}
+#animation tr{
+  margin-left: auto;
+  margin-right: auto;
+  position:absolute;
+  animation-name: animation;
+  animation-duration:20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes animation {
+  0% {left: 0%;}
+  50% {left: 85%;}
+  100% {left: 0%;}
+}
+
+#inputLogin, #inputPassword{
+  width: 150px;
+}
+#greetingTable {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+#fulfillMessage {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: red;
+}
+#registrationButton {
+  color: white;
+  font-weight: normal;
+}
+
+#registrationButton:hover {
+  color: #881616;
+  font-weight: bold;
+  cursor: pointer;
+}
+#fulfillForm {
+  color: red;
+  font-weight: bold;
+}
+#success {
+  color: darkgreen;
+  font-weight: bold;
+}
+#validationMsg {
+  color: red;
+  font-weight: bold;
+}
+ul {
+  font-weight: bold;
+}
+#fantazja {
+  animation-name: tecza;
+  animation-duration:1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes tecza {
+  0% {color: red;}
+  12% {color: orange;}
+  24% {color: yellow;}
+  36% {color: greenyellow;}
+  48% {color: green;}
+  60% {color: dodgerblue;}
+  72% {color: blue;}
+  84% {color: darkblue;}
+  96% {color: blueviolet;}
+}

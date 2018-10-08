@@ -1,0 +1,11 @@
+table{
+  border-radius: 5px;
+  width: 80px;
+}
+input{
+  border-radius: 5px;
+}
+#fulfillMessage {
+  color: red;
+  font-weight: bold;
+}
